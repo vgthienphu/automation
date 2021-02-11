@@ -1,24 +1,28 @@
 package org.pvuong.base;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.pvuong.constants.general.Browser;
+import org.pvuong.helpers.DriverHelper;
+import org.pvuong.pages.HomePage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-
-import static io.github.bonigarcia.wdm.config.DriverManagerType.CHROME;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 public class BaseTest {
-    protected WebDriver driver;
-
     @BeforeTest
-    public void setUp() {
-        WebDriverManager.getInstance(CHROME).setup();
-        driver = new ChromeDriver();
+    @Parameters("browser")
+    public void setUp(@Optional(Browser.CHROME) String browser) {
+        DriverHelper.init(browser);
+        HomePage homePage = new HomePage();
+
+        homePage.goTo();
+        homePage.maximizeWindow();
     }
 
     @AfterTest
     public void tearDown() {
-        driver.quit();
+        HomePage homePage = new HomePage();
+        homePage.closeBrowser();
     }
 }
