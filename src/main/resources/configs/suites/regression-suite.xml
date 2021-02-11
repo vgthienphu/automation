@@ -3,6 +3,7 @@
 <suite thread-count="3" name="Regression"  parallel="classes">
     <test name="UI">
         <parameter name="browser" value="Chrome"/>
+        <parameter name="environment" value="Staging"/>
         <classes>
             <class name="org.pvuong.ui.tests.HomePageTest"/>
         </classes>

@@ -8,6 +8,6 @@ public class HomePage extends BasePage {
     }
 
     public void goTo() {
-        driver.get(baseURL);
+        driver.get(env.getBaseURL());
     }
 }
