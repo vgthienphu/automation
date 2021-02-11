@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite thread-count="3" name="Regression"  parallel="classes">
+    <test name="UI">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="org.pvuong.ui.tests.HomePageTest"/>
+        </classes>
+    </test>
+</suite>

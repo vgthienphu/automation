@@ -1,6 +1,5 @@
 package org.pvuong.base;
 
-import org.openqa.selenium.WebDriver;
 import org.pvuong.constants.general.Browser;
 import org.pvuong.helpers.DriverHelper;
 import org.pvuong.pages.HomePage;
